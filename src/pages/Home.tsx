@@ -17,6 +17,29 @@ const Home = () => {
       >
         안녕! 사랑하는 서현아... 🌟
       </motion.h1>
+
+      <motion.div
+        className="mb-8"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.2 }}
+      >
+        <div className="relative w-64 h-64 mx-auto">
+          <img
+            src="/seohyun.jpg"
+            alt="서현이"
+            className="w-full h-full object-cover rounded-full shadow-lg border-4 border-purple-200"
+          />
+          <motion.div
+            className="absolute -bottom-2 -right-2 bg-purple-100 rounded-full p-2 border-2 border-purple-300"
+            animate={{ rotate: [0, -10, 10, -10, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
+            ⭐️
+          </motion.div>
+        </div>
+      </motion.div>
+
       <motion.p 
         className="text-xl text-gray-600"
         initial={{ opacity: 0 }}
