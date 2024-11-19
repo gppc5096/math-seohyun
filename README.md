@@ -1,9 +1,52 @@
-# React + Vite
+# 서현이의 수학 모험 (Seohyun's Math Adventure)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 프로젝트 소개
+"서현이의 수학 모험"은 초등학생 서현이를 위해 특별히 제작된 맞춤형 수학 학습 웹 애플리케이션입니다. 할아버지의 따뜻한 응원과 함께하는 즐거운 수학 공부를 목표로 합니다.
 
-Currently, two official plugins are available:
+## 주요 기능
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# math-seohyun
+### 1. 맞춤형 수학 학습
+- 덧셈, 뺄셈, 곱셈, 나눗셈의 기초 연산 학습
+- 각 연산별 초급/중급/고급 난이도 구분
+- 단계별 10문제 학습 시스템
+- 실시간 피드백과 격려 메시지
+
+### 2. 서니(Seo-ny) 캐릭터
+- 문제 풀이 과정에서 함께하는 응원 캐릭터
+- 상황에 맞는 다양한 표정과 반응
+- 따뜻한 격려 메시지 전달
+
+### 3. 수학 정원 시스템
+- 학습 진행도에 따라 성장하는 꽃
+- 점수 및 성취도 시각화
+- 연속 정답에 따른 특별 보상
+
+### 4. 사용자 경험
+- 직관적이고 아름다운 UI/UX
+- 애니메이션 효과
+- 배경 음악과 효과음
+- 학습 동기 부여 시스템
+
+## 기술 스택
+- React 18 + TypeScript
+- Vite
+- Tailwind CSS
+- Framer Motion
+- React Router DOM
+- Howler.js
+
+## 개발 목표
+1. 수학에 대한 흥미 유발
+2. 단계별 학습을 통한 자신감 향상
+3. 할아버지의 따뜻한 응원을 담은 학습 경험 제공
+4. 성취감을 통한 학습 동기 부여
+
+## 향후 계획
+- 더 다양한 수학 문제 유형 추가
+- AI 기반 학습 분석 시스템 도입
+- 시즌별 특별 이벤트
+- 새로운 캐릭터 및 스토리 추가
+
+## 개발자 메시지
+이 프로젝트는 서현이의 수학 실력 향상을 돕고, 할아버지의 사랑과 응원을 전달하기 위해 제작되었습니다. 
+즐겁게 공부하며 성장하는 서현이의 모습을 기대합니다.
