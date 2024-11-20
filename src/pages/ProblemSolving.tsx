@@ -19,7 +19,10 @@ const ProblemSolving = () => {
   const { 
     addScore, 
     updateConsecutiveCorrect, 
-    updateGardenProgress 
+    updateGardenProgress,
+    updateOperationScore,
+    score,
+    consecutiveCorrect
   } = useMath();
 
   const [isCompleted, setIsCompleted] = useState(false);
@@ -47,14 +50,22 @@ const ProblemSolving = () => {
     }
 
     const isCorrect = Number(userAnswer) === currentProblem.answer;
+    const operationType = id?.split('-')[0];
     
     if (isCorrect) {
       soundManager.playEffect('correct');
       setSeonyEmotion('cheering');
       setSeonyMessage(currentProblem.encouragement);
-      addScore(10);
-      updateConsecutiveCorrect(true);
+      if (score < 100) {
+        addScore(10);
+      }
+      if (consecutiveCorrect < 10) {
+        updateConsecutiveCorrect(true);
+      }
       updateGardenProgress();
+      if (operationType) {
+        updateOperationScore(operationType, 10);
+      }
     } else {
       soundManager.playEffect('incorrect');
       setSeonyEmotion('thinking');
@@ -80,8 +91,11 @@ const ProblemSolving = () => {
     } else {
       setIsCompleted(true);
       setSeonyEmotion('cheering');
-      setSeonyMessage('모든 문제를 다 풀었어요! 정말 잘했어요! 🎉');
+      setSeonyMessage('10문제를 모두 풀었어요! 정말 잘했어요! 🎉');
       soundManager.playEffect('success');
+      if (consecutiveCorrect > 10) {
+        updateConsecutiveCorrect(true);
+      }
     }
   };
 

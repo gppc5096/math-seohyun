@@ -3,14 +3,14 @@ import { motion } from 'framer-motion';
 import { useMath } from '../contexts/MathContext';
 
 const Garden = () => {
-  const { score, consecutiveCorrect, gardenProgress } = useMath();
+  const { score, consecutiveCorrect, gardenProgress, operationScores: scores } = useMath();
 
-  const operationScores = [
+  const operationCards = [
     {
       id: 1,
       name: '덧셈',
       icon: '➕',
-      score: 0,
+      score: scores['1'],
       color: 'from-pink-100 to-pink-200',
       borderColor: 'border-pink-300',
       character: '🦄',
@@ -20,7 +20,7 @@ const Garden = () => {
       id: 2,
       name: '뺄셈',
       icon: '➖',
-      score: 0,
+      score: scores['2'],
       color: 'from-blue-100 to-blue-200',
       borderColor: 'border-blue-300',
       character: '🐬',
@@ -30,7 +30,7 @@ const Garden = () => {
       id: 3,
       name: '곱셈',
       icon: '×',
-      score: 0,
+      score: scores['3'],
       color: 'from-purple-100 to-purple-200',
       borderColor: 'border-purple-300',
       character: '🦋',
@@ -40,7 +40,7 @@ const Garden = () => {
       id: 4,
       name: '나눗셈',
       icon: '➗',
-      score: 0,
+      score: scores['4'],
       color: 'from-green-100 to-green-200',
       borderColor: 'border-green-300',
       character: '🐢',
@@ -77,7 +77,7 @@ const Garden = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {operationScores.map((op) => (
+        {operationCards.map((op) => (
           <motion.div
             key={op.id}
             initial={{ opacity: 0, y: 20 }}
