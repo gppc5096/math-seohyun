@@ -6,11 +6,14 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Noto Sans KR', 'sans-serif'],
+        gaegu: ['Gaegu', 'cursive'],
+      },
       colors: {
         primary: {
           50: '#fdf4ff',
           100: '#fae8ff',
-          // ... 더 많은 색상 추가
         }
       },
       animation: {

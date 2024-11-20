@@ -17,7 +17,7 @@ const Navigation = () => {
             className="absolute left-1/2 transform -translate-x-1/2"
           >
             <motion.p
-              className="text-2xl font-bold text-purple-800"
+              className="text-2xl font-bold text-purple-800 font-gaegu"
               animate={{ 
                 scale: [1, 1.05, 1],
                 color: ['#6b21a8', '#7e22ce', '#6b21a8']
