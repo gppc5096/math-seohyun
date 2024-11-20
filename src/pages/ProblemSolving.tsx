@@ -50,7 +50,8 @@ const ProblemSolving = () => {
     }
 
     const isCorrect = Number(userAnswer) === currentProblem.answer;
-    const operationType = id?.split('-')[0];
+    
+    const operationType = id?.charAt(0);
     
     if (isCorrect) {
       soundManager.playEffect('correct');
