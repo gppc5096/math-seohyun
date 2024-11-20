@@ -50,13 +50,24 @@ const ProblemSolving = () => {
     }
 
     const isCorrect = Number(userAnswer) === currentProblem.answer;
-    
     const operationType = id?.charAt(0);
     
     if (isCorrect) {
       soundManager.playEffect('correct');
       setSeonyEmotion('cheering');
-      setSeonyMessage(currentProblem.encouragement);
+
+      // 마지막 문제인 경우
+      if (currentProblemIndex === problems.length - 1) {
+        setIsCompleted(true);
+        setSeonyMessage('모든 문제를 다 풀었어요! 돌아가기 버튼을 클릭하세요.');
+        soundManager.playEffect('success');
+        if (consecutiveCorrect > 10) {
+          updateConsecutiveCorrect(true);
+        }
+      } else {
+        setSeonyMessage(currentProblem.encouragement);
+      }
+
       if (score < 100) {
         addScore(10);
       }
@@ -77,7 +88,9 @@ const ProblemSolving = () => {
     setFeedback({
       isCorrect,
       message: isCorrect 
-        ? currentProblem.encouragement
+        ? currentProblemIndex === problems.length - 1
+          ? "모든 문제를 완료했어요! 돌아가기 버튼을 클릭하세요."
+          : currentProblem.encouragement
         : "아쉽네요. 다시 한번 생각해볼까요?"
     });
   };
@@ -99,6 +112,9 @@ const ProblemSolving = () => {
       }
     }
   };
+
+  // 다음 문제 버튼 표시 조건 수정
+  const showNextButton = feedback.isCorrect && !isCompleted;
 
   if (!currentProblem) {
     return <div>문제를 찾을 수 없습니다.</div>;
@@ -163,7 +179,7 @@ const ProblemSolving = () => {
               정답 확인하기
             </button>
 
-            {currentProblemIndex < problems.length - 1 && (
+            {showNextButton && (
               <button 
                 onClick={handleNextProblem}
                 className="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition-colors"
@@ -175,7 +191,7 @@ const ProblemSolving = () => {
         </div>
       </motion.div>
 
-      {isCompleted ? (
+      {isCompleted && (
         <motion.div 
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -212,10 +228,6 @@ const ProblemSolving = () => {
             </div>
           </motion.div>
         </motion.div>
-      ) : (
-        <div className="text-center mt-4 text-gray-600">
-          {currentProblemIndex + 1} / 10 문제
-        </div>
       )}
 
       <Seony emotion={seonyEmotion} message={seonyMessage} />
