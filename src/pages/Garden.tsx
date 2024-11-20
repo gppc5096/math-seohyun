@@ -86,14 +86,22 @@ const Garden = () => {
 
   return (
     <div className="max-w-4xl mx-auto p-6">
-      <h1 className="text-3xl font-bold text-purple-600 mb-8 text-center">
-        서현이의 수학정원
-      </h1>
-      
-      <div className="mb-8 text-center">
-        <p className="text-lg text-black">
-          서현이의 수학 실력이 쑥쑥 자라나고 있어요! 🌱
-        </p>
+      <div className="text-center mb-8">
+        <motion.h1 
+          className="text-3xl font-bold text-purple-600 mb-2"
+          animate={{ scale: [1, 1.05, 1] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          서현이의 수학실력 성장기록 📈
+        </motion.h1>
+        <motion.p 
+          className="text-lg text-black"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+        >
+          우리 서현이의 멋진 수학 성적표예요! ✨
+        </motion.p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

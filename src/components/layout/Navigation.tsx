@@ -11,10 +11,10 @@ const Navigation = () => {
           </Link>
           <div className="flex space-x-4">
             <Link to="/garden" className="text-gray-600 hover:text-purple-600">
-              수학정원
+              수학성적표 📊
             </Link>
             <Link to="/study" className="text-gray-600 hover:text-purple-600">
-              학습하기
+              학습하기 ✏️
             </Link>
           </div>
         </div>
