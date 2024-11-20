@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const Navigation = () => {
   return (
@@ -9,6 +10,27 @@ const Navigation = () => {
           <Link to="/" className="text-xl font-bold text-purple-600">
             서현이의 수학모험
           </Link>
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="absolute left-1/2 transform -translate-x-1/2"
+          >
+            <motion.p
+              className="text-2xl font-bold text-purple-800"
+              animate={{ 
+                scale: [1, 1.05, 1],
+                color: ['#6b21a8', '#7e22ce', '#6b21a8']
+              }}
+              transition={{ 
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              나는 창조주 하나님을 믿습니다
+            </motion.p>
+          </motion.div>
           <div className="flex space-x-4">
             <Link to="/garden" className="text-gray-600 hover:text-purple-600">
               수학성적표 📊
